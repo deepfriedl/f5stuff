@@ -1,8 +1,7 @@
 ---
 
 - name: Create a VIP, pool, pool members and nodes
-  hosts: f5-test
-  connection: local
+  hosts: bigip2  connection: local
 
   vars:
     provider:
@@ -30,18 +29,18 @@
         pool: web
         port: 80
       with_items:
-        - host: 10.10.10.10
-          name: web01
-        - host: 10.10.10.20
-          name: web02
+        - host: 192.168.202.253
+          name: centos1
+        - host: 192.168.202.254
+          name: centos2
       delegate_to: localhost
 
     - name: Create a VIP
       bigip_virtual_server:
         provider: "{{ provider }}"
-        description: foo-vip
-        destination: 172.16.10.108
-        name: vip-1
+        description: ansible-created-vip
+        destination: 192.168.200.250
+        name: ansiblevip
         pool: web
         port: 80
         snat: Automap
