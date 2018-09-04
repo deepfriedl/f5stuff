@@ -6,6 +6,7 @@
   tasks:
     - name: Create a pool
       bigip_pool:
+        user: ansible
         host: "{{ ansible_host }}"
         lb_method: ratio-member
         name: web
