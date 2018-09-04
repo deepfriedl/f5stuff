@@ -1,7 +1,7 @@
 ---
 
 - name: Create a VIP, pool, pool members and nodes
-  hosts: 192.168.200.202  connection: local
+  # hosts: 192.168.200.202  connection: local
 
   vars:
     provider:
