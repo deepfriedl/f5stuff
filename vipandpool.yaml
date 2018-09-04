@@ -3,18 +3,10 @@
 - name: Create a VIP, pool, pool members and nodes
   hosts: 192.168.200.202
 
-  vars:
-    provider:
-      # password: "{{ f5_password }}"
-      server: "{{ ansible_host }}"
-      # user: "{{ ansible }}"
-      # validate_certs: "{{ validate_certs }}"
-      # server_port: "{{ f5_server_port }}"
-
   tasks:
     - name: Create a pool
       bigip_pool:
-        provider: "{{ provider }}"
+        host: "{{ ansible_host }}"
         lb_method: ratio-member
         name: web
         slow_ramp_time: 120
@@ -23,7 +15,7 @@
     - name: Add members to pool
       bigip_pool_member:
         provider: "{{ provider }}"
-        # description: "webserver {{ item.name }}"
+        description: "webserver {{ item.name }}"
         host: "{{ item.host }}"
         name: "{{ item.name }}"
         pool: web
