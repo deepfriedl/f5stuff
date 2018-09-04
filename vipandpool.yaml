@@ -5,11 +5,11 @@
 
   vars:
     provider:
-      password: "{{ f5_password }}"
+      # password: "{{ f5_password }}"
       server: "{{ ansible_host }}"
       user: "{{ ansible }}"
-      validate_certs: "{{ validate_certs }}"
-      server_port: "{{ f5_server_port }}"
+      # validate_certs: "{{ validate_certs }}"
+      # server_port: "{{ f5_server_port }}"
 
   tasks:
     - name: Create a pool
@@ -23,7 +23,7 @@
     - name: Add members to pool
       bigip_pool_member:
         provider: "{{ provider }}"
-        description: "webserver {{ item.name }}"
+        # description: "webserver {{ item.name }}"
         host: "{{ item.host }}"
         name: "{{ item.name }}"
         pool: web
