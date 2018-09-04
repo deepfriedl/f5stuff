@@ -10,7 +10,7 @@
         user: ansible
         password: removed
         host: "{{ ansible_host }}"
-        lb_method: ratio-member
+        lb_method: round_robin
         name: web
         slow_ramp_time: 120
       delegate_to: localhost
