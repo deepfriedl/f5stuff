@@ -1,7 +1,7 @@
 ---
 
 - name: Create a VIP, pool, pool members and nodes
-  hosts: mystuff
+  hosts: 192.1683.200.252
 
   vars:
     provider:
