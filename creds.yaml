@@ -1,1 +1,4 @@
----
+# credentials
+F5:
+    user: ansible
+    password:ansible
