@@ -1,39 +1,20 @@
 # Create pool
-
 ---
-
 - hosts: localhost
-
   pre_tasks:
-
     - include_vars: creds.yml
-
   tasks:
-
     - name: Create pool
-
       bigip_pool:
-
         name: my_pool
-
         partition: Common
-
         monitor_type: single
-
         monitors:
-
           - my_http_monitor
-
         lb_method: least-connections-member
-
         slow_ramp_time: 300
-
         state: present
-
         validate_certs: false
-
         server: "{{ inventory_host }}"
-
         password: "{{ password }}"
-
         user: "{{ user }}"
