@@ -31,7 +31,7 @@
      delegate_to: localhost
 
     - name: Create node 2
-     bigip_node:
+      bigip_node:
          name: centos2
          validate_certs: no
          server: "{{ inventory_host }}"
@@ -40,7 +40,7 @@
      delegate_to: localhost
 
     - name: Add nodes to pool
-     bigip_pool_member:
+      bigip_pool_member:
          description: webserver-1
          host: "{{ item.host }}"
          name: "{{ item.name }}"
@@ -58,7 +58,7 @@
            name: centos2
 
     - name: Add the SNAT pool 'SNAT1'
-     bigip_snat_pool:
+      bigip_snat_pool:
          name: "SNAT1"
          state: "present"
          members:
