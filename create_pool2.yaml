@@ -16,7 +16,7 @@
          monitor_type: m_of_n
          monitors:
            - http
-         server: "{{ inventory_host }}"
+         server: "{{ inventory_hostname }}"
          password: "{{ password }}"
          user: "{{ user }}"
      delegate_to: localhost
