@@ -1,0 +1,23 @@
+#This playbook creates a pool
+---
+
+- name: Create a pool
+  hosts: all
+  pre_tasks:
+  vars_files:
+   - creds.yaml
+
+  tasks:
+   - name: Create a pool
+     bigip_pool:
+         lb_method: round-robin
+         name: web2
+         slow_ramp_time: 120
+         validate_certs: no
+         monitor_type: single
+         monitors:
+           - http
+         server: "{{ inventory_hostname }}"
+         password: "{{ password }}"
+         user: "{{ user }}"
+     delegate_to: localhost
