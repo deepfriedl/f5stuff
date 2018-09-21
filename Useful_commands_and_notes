@@ -1,0 +1,2 @@
+ansible-vault edit creds.yaml
+ansible-playbook create_pool3.yaml --inventory inventorybigip.yaml --ask-vault-pass
