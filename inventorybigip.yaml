@@ -1,0 +1,4 @@
+#Inventory for BigIPs
+BigIPs:
+  hosts:
+      192.168.200.202:
