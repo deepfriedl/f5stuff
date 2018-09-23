@@ -1,3 +1,6 @@
 ansible-vault edit creds.yaml
 ansible-vault create creds.yaml
 ansible-playbook create_pool3.yaml --inventory inventorybigip.yaml --ask-vault-pass
+git add .
+git commit -m "Add existing file"
+git push origin master`
