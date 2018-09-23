@@ -1,0 +1,5 @@
+#This playbook creates a pool
+---
+
+- debug:
+    msg: "System"

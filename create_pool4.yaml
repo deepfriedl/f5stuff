@@ -8,10 +8,15 @@
    - creds.yaml
 
   tasks:
+
+   - name: Display all variables/facts known for a host
+     debug:
+       msg: "User is {{ user }}"
+       
    - name: Create a pool
      bigip_pool:
          lb_method: round-robin
-         name: web3
+         name: web4
          slow_ramp_time: 120
          validate_certs: no
          monitor_type: single
