@@ -1,8 +1,0 @@
-#This playbook call s other playbooks
----
-
-- name: Include a play after another play
-  import_playbook: create_pool3.yaml
-  
-- name: Include a play after another play
-  import_playbook: create_pool4.yaml
