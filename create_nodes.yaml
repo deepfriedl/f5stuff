@@ -1,0 +1,34 @@
+#create_nodes.yaml
+#This playbook creates nodes
+---
+
+- name: Create nodes and add to a pool
+  hosts: sandbox
+  connection: local
+  pre_tasks:
+  vars_files:
+   - creds.yaml
+
+  tasks:
+
+    - name: Display some variable
+     debug:
+       # msg: "User is {{ user }}"
+       msg: "{{ inventory_hostname }}"
+  
+   - name: Add members to pool
+     bigip_pool_member:
+         server: "{{ inventory_hostname }}"
+         password: "{{ password }}"
+         user: "{{ user }}"
+         host: "{{ item.host }}"
+         name: "{{ item.name }}"
+         pool: web
+         port: 80
+         validate_certs: no
+     with_items:
+         - host: 192.168.202.253
+           name: centos1
+         - host: 192.168.202.254
+           name: centos2
+     delegate_to: localhost

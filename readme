@@ -1,0 +1,3 @@
+Playbooks in this directory can be run with a command similar to ansible-playbook parent_playbook.yaml --inventory inventorybigip.yaml --ask-vault-pass .
+Make sure to be specific with the "hosts" line in your playbook or edit inventorybigip.yaml to comment out anything you don't want to make changes to. Also, if you comment out everything in test, for example, you also have to comment out the group name and "hosts" below it.
+See Dave Friedl for the password to the vault used for creds.yaml .

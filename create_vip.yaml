@@ -1,0 +1,33 @@
+#create_vip.yaml
+#This playbook creates a VIP
+---
+
+- name: Create a VIP
+  hosts: sandbox
+  connection: local
+  pre_tasks:
+  vars_files:
+   - creds.yaml
+
+  tasks:
+
+   - name: Display some variable
+     debug:
+       # msg: "User is {{ user }}"
+       msg: "{{ inventory_hostname }}"
+
+   - name: Create a VIP
+     bigip_virtual_server:
+         destination: 192.168.200.250
+         name: ansiblevip
+         pool: web
+         port: 80
+         snat: Automap
+         profiles:
+           - http
+           - clientssl
+         validate_certs: no
+         server: "{{ inventory_hostname }}"
+         password: "{{ password }}"
+         user: "{{ user }}"
+     delegate_to: localhost

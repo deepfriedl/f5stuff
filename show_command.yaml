@@ -1,0 +1,32 @@
+#show_command.yaml
+#This playbook doesn't work because bigip_command fails to write to stout. Troubleshooting.
+#This playbook gets information about a BigIP
+---
+
+ - name: Show information about a BigIP
+  hosts: sandbox
+  connection: local
+  pre_tasks:
+  vars_files:
+   - creds.yaml
+
+   tasks:
+
+   - name: Collect BIG-IP information
+     register: output
+     bigip_command:
+       commands:
+         - tmsh show sys memory
+       server: "{{ inventory_hostname }}"
+       password: "{{ password }}"
+       user: "{{ user }}"
+     delegate_to: localhost
+
+   - name: Display some variable
+     debug:
+       #msg: "User is {{ user }}"
+       #msg: "{{ inventory_hostname }}"
+       msg: "Command output is {{ output['stdout'] }}"
+       #msg: "Command output is {{ user }}"
+     delegate_to: localhost
+

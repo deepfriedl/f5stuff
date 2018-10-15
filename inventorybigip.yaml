@@ -1,0 +1,6 @@
+all:
+  hosts:
+    localhost
+    sandbox:
+      hosts:
+        192.168.200.201

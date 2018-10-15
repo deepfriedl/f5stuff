@@ -1,0 +1,28 @@
+#bigipdevicefacts.yaml
+#Doesn't work before version 2.7. We are not yet running 2.7
+#This playbook gets information about a BigIP
+---
+
+- name: Show information about a BigIP
+  hosts: sandbox
+  connection: local
+  pre_tasks:
+  vars_files:
+   - creds.yaml
+
+  tasks:
+
+   - name: Display some variable
+     debug:
+       msg: "User is {{ user }}"
+       # msg: "{{ inventory_hostname }}"
+
+   - name: Collect BIG-IP facts
+     bigip_device_facts:
+       gather_subset:
+         - interfaces
+         - vlans
+       server: "{{ inventory_hostname }}"
+       password: "{{ password }}"
+       user: "{{ user }}"
+     delegate_to: localhost

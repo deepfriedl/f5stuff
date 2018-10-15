@@ -1,0 +1,12 @@
+#parent_playbook.yaml
+#This playbook calls other playbooks
+---
+
+ - name: Include a play after another play
+  import_playbook: create_pool.yaml
+
+ - name: Include a play after another play
+  import_playbook: create_nodes.yaml
+
+ - name: Include a play after another play
+  import_playbook: create_vip.yaml

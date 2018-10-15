@@ -1,0 +1,31 @@
+#create_pool.yaml
+#This playbook creates a pool
+---
+
+ - name: Create a pool
+  hosts: sandbox
+  connection: local
+  pre_tasks:
+  vars_files:
+   - creds.yaml
+
+  tasks:
+
+    - name: Display some variable
+     debug:
+       msg: "User is {{ user }}"
+       # msg: "{{ inventory_hostname }}"
+
+   - name: Create a pool
+     bigip_pool:
+         lb_method: round-robin
+         name: web
+         slow_ramp_time: 120
+         validate_certs: no
+         monitor_type: single
+         monitors:
+           - http
+         server: "{{ inventory_hostname }}"
+         password: "{{ password }}"
+         user: "{{ user }}"
+     delegate_to: localhost

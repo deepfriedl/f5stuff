@@ -1,0 +1,8 @@
+#Useful_commands_and_notes
+ansible-vault edit creds.yaml
+ansible-vault create creds.yaml
+ansible-playbook create_pool3.yaml --inventory inventorybigip.yaml --ask-vault-pass
+git add . -or- git add --all
+git commit -m "Add existing file"
+git checkout -b RTB_jumpbox
+git push origin master or git push origin RTB_jumpbox
