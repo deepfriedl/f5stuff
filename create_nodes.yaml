@@ -11,7 +11,7 @@
 
   tasks:
 
-    - name: Display some variable
+   - name: Display some variable
      debug:
        # msg: "User is {{ user }}"
        msg: "{{ inventory_hostname }}"
@@ -27,8 +27,8 @@
          port: 80
          validate_certs: no
      with_items:
-         - host: 192.168.202.253
+         - host: 192.168.202.252
            name: centos1
-         - host: 192.168.202.254
+         - host: 192.168.202.253
            name: centos2
      delegate_to: localhost

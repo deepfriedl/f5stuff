@@ -2,7 +2,7 @@
 #This playbook creates a pool
 ---
 
- - name: Create a pool
+- name: Create a pool
   hosts: sandbox
   connection: local
   pre_tasks:
@@ -11,7 +11,7 @@
 
   tasks:
 
-    - name: Display some variable
+   - name: Display some variable
      debug:
        msg: "User is {{ user }}"
        # msg: "{{ inventory_hostname }}"

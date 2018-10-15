@@ -1,6 +1,7 @@
 all:
   hosts:
     localhost
-    sandbox:
-      hosts:
-        192.168.200.202
+  children:    
+     sandbox:
+       hosts:
+         192.168.200.202
