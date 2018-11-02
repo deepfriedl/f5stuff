@@ -24,4 +24,4 @@
      register: output
      delegate_to: localhost
 
-   - debug: msg="{{ output.stdout_lines: }}"
+   - debug: msg="{{ output.stdout_lines }}"
