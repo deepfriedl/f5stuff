@@ -28,6 +28,6 @@
      debug:
        #msg: "User is {{ user }}"
        #msg: "{{ inventory_hostname }}"
-       msg: "Command output is {{ output['stdout'] }}"
+       msg: "Command output is {{ output.stdout }}"
        #msg: "Command output is {{ user }}"
      delegate_to: localhost
