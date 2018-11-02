@@ -12,22 +12,16 @@
 
   tasks:
   
-  - name: print to stdout
-    command: echo "hello"
-    register: hello
+   - name: Collect BIG-IP facts
+     bigip_device_facts:
+       gather_subset:
+         - interfaces
+         - vlans
+       validate_certs: no
+       server: "{{ inventory_hostname }}"
+       password: "{{ password }}"
+       user: "{{ user }}"
+     register: output
+     delegate_to: localhost
 
-  - debug: msg="{{ hello.stdout }}"
-
-#   - name: Collect BIG-IP facts
-#     register: output
-#     bigip_device_facts:
-#       gather_subset:
-#         - interfaces
-#         - vlans
-#       validate_certs: no
-#       server: "{{ inventory_hostname }}"
-#       password: "{{ password }}"
-#       user: "{{ user }}"
-#     delegate_to: localhost
-
-#   - debug: msg="{{ output.stdout }}"
+   - debug: msg="{{ output.stdout }}"
