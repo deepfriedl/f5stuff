@@ -18,6 +18,7 @@
        # msg: "{{ inventory_hostname }}"
 
    - name: Collect BIG-IP facts
+     register: output
      bigip_device_facts:
        gather_subset:
          - interfaces
