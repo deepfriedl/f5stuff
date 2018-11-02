@@ -20,7 +20,7 @@
      bigip_virtual_server:
          destination: 192.168.200.250
          name: ansiblevip
-         #type: performance-http
+         type: performance-l4
          pool: web
          port: 80
          snat: Automap
