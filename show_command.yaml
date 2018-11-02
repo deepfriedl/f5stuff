@@ -17,6 +17,7 @@
      bigip_command:
        commands:
          - tmsh show sys memory
+       validate_certs: no  
        server: "{{ inventory_hostname }}"
        password: "{{ password }}"
        user: "{{ user }}"
