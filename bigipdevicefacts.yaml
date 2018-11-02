@@ -1,5 +1,5 @@
 #bigipdevicefacts.yaml
-#Doesn't work before version 2.7. We are not yet running 2.7
+#Doesn't work before version 2.7.
 #This playbook gets information about a BigIP
 ---
 
