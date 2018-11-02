@@ -8,4 +8,3 @@ git checkout -b RTB_jumpbox
 git push origin master or git push origin RTB_jumpbox
 ansible-playbook bigipdevicefacts.yaml --inventory inventorybigip.yaml --ask-vault-pass -vvvv >> output1.txt
 yum whatprovides pip
-pip --proxy=vz-proxy.pncint.net:8080 install f5-sdk
