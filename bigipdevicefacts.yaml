@@ -21,7 +21,4 @@
        server: "{{ inventory_hostname }}"
        password: "{{ password }}"
        user: "{{ user }}"
-     register: output
      delegate_to: localhost
-
-   - debug: msg="{{ output.results | map(attribute='stdout') | list }}"
