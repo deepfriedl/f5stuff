@@ -22,6 +22,7 @@
        gather_subset:
          - interfaces
          - vlans
+       validate_certs: no
        server: "{{ inventory_hostname }}"
        password: "{{ password }}"
        user: "{{ user }}"
